@@ -1,0 +1,9 @@
+.container-md {
+  display: flex;
+  align-items: center;
+}
+
+.icon-end {
+  flex: 1;
+  text-align: end;
+}

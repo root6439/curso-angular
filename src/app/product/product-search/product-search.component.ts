@@ -1,3 +1,5 @@
+import { Product } from './../../shared/models/Product';
+import { ProductService } from './../product.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-search.component.css'],
 })
 export class ProductSearchComponent implements OnInit {
-  constructor() {}
+  displayedColumns: string[] = ['id', 'name', 'price'];
+  dataSource: Product[];
 
-  ngOnInit(): void {}
+  constructor(private service: ProductService) {}
+
+  ngOnInit(): void {
+    this.service.getElements().subscribe((elements: any[]) => {
+      this.dataSource = elements;
+    });
+  }
 }

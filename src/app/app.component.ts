@@ -1,3 +1,4 @@
+import { Menu } from './shared/models/Menu';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,5 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Ecommerce';
 
-  
+  showFiller = false;
+
+  menus: Menu[] = [
+    {
+      name: 'Cadastrar produto',
+      url: 'product/register',
+    },
+    {
+      name: 'Pesquisar produto',
+      url: 'product/search',
+    },
+  ];
 }

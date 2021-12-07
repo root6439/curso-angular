@@ -1,5 +1,17 @@
-<app-header></app-header>
+<app-header (emitter)="drawer.toggle()"></app-header>
 
-<div class="container-md mt-3">
-  <router-outlet></router-outlet>
+<div class="container-md">
+  <mat-drawer-container autosize [hasBackdrop]="true">
+    <mat-drawer #drawer mode="over">
+      <mat-selection-list multiple="false">
+        <mat-list-option *ngFor="let menu of menus">
+          {{ menu.name }}
+        </mat-list-option>
+      </mat-selection-list>
+    </mat-drawer>
+
+    <div class="my-5">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-container>
 </div>

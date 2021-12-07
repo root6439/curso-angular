@@ -2,6 +2,7 @@ import { ProductService } from './../product.service';
 import { Product } from './../../shared/models/Product';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-register',
@@ -17,15 +18,14 @@ export class ProductRegisterComponent implements OnInit {
     price: this.price,
   });
 
-  form: any;
-
-  constructor(private service: ProductService) {}
+  constructor(private service: ProductService, private router: Router) {}
 
   ngOnInit(): void {}
 
   saveProduct(product: Product) {
     this.service.postProducts(product).subscribe((p: Product) => {
       console.log(p);
+      this.router.navigate(['product/search']);
     });
   }
 }

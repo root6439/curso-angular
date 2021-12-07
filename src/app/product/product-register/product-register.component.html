@@ -1,1 +1,33 @@
-<p>product-register works!</p>
+<div class="d-flex justify-content-center">
+  <form
+    [formGroup]="formCreateProduct"
+    (ngSubmit)="saveProduct(formCreateProduct.value)"
+  >
+    <div class="row">
+      <mat-form-field appearance="legacy">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error>Campo obrigatório!</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="row">
+      <mat-form-field appearance="legacy">
+        <mat-label>Preço</mat-label>
+        <input matInput formControlName="price" />
+        <mat-error>Campo obrigatório!</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row mt-3">
+      <button
+        type="submit"
+        mat-flat-button
+        color="primary"
+        [disabled]="formCreateProduct.invalid"
+      >
+        Salvar
+      </button>
+      <button type="button" mat-flat-button>Cancelar</button>
+    </div>
+  </form>
+</div>
